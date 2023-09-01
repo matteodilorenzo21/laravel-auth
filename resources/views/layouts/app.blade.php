@@ -23,11 +23,11 @@
     <div id="app">
 
 
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-lg">
+        <nav class="navbar navbar-expand-md navbar-light shadow-sm">
             <div class="container">
                 <a class="navbar-brand d-flex align-items-center" href="{{ url('/') }}">
-                    <div class="logo_laravel">
-                        <img src="{{ asset('images/logo.png') }}" alt="logo" height="30" width="125">
+                    <div class="logo_laravel pb-2">
+                        <img src="{{ asset('images/logo.png') }}" alt="logo" height="40" width="125">
                     </div>
                 </a>
 
@@ -41,19 +41,32 @@
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
+
+                        <li class="nav-item">
+                            <a class="nav-link py-3 px-4" href="#">Work</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link py-3 px-4" href="#">About</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link py-3 px-4" href="#">Contact</a>
+                        </li>
+
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                <a class="nav-link py-3 px-4" href="{{ route('login') }}">{{ __('Login') }}</a>
                             </li>
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    <a class="nav-link py-3 px-4" href="{{ route('register') }}">{{ __('Register') }}</a>
                                 </li>
                             @endif
                         @else
                             <li class="nav-item dropdown ">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle p-3" href="#" role="button"
                                     data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
                                 </a>

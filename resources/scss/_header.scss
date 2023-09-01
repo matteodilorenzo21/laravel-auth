@@ -1,0 +1,36 @@
+@use 'vars' as *;
+
+header {
+    background-color: $white;
+}
+
+.logo_laravel img {
+    padding: 0 5px;
+    
+    transition: filter 0s linear, box-shadow 0.2s linear;
+    backface-visibility: hidden;
+    &:hover {
+        filter: invert(99%) sepia(100%) hue-rotate(305deg) saturate(27500%) brightness(75%);
+    }
+}
+
+.navbar-nav .nav-item > a {
+    color: $black;
+    font-weight: 500;
+    padding: 15px 0;
+    border-bottom: 5px solid transparent;
+    transition: border-bottom 0.120s ease;
+    &:hover {
+        border-bottom: 5px solid $color-primary;
+    }
+}
+
+.dropdown-menu a {
+    padding: 10px 0;
+    border-bottom: 2px solid transparent;
+    transition: border-bottom 0.1s ease, color 0.1 ease;
+    &:hover {
+        color: $color-primary;
+        border-bottom: 2px solid $color-primary;
+    }
+}

@@ -1,7 +1,11 @@
+// GENERAL PRESET
 @use "vars";
-@use "header";
 @use "generics";
 @use "fonts";
+
+// COMPONENTS STYLE
+@use "header";
+@use "admin/_index";
 
 @import '~bootstrap/scss/bootstrap';
 

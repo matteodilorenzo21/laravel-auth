@@ -5,8 +5,6 @@ header {
 }
 
 .logo_laravel img {
-    padding: 0 5px;
-    
     transition: filter 0s linear, box-shadow 0.2s linear;
     backface-visibility: hidden;
     &:hover {

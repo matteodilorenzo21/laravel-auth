@@ -10,8 +10,15 @@
             <div class="line-primary my-4"></div>
             <div class="row pb-1">
                 <div class="col-7 align-middle">
-                    <img id="show-img" src="{{ $project->image }}" alt="Project Image">
+                    @if (!empty($project->image))
+                        <img id="show-img" src="{{ asset('storage/' . $project->image) }}" alt="Project Image">
+                    @else
+                        <img id="show-img"
+                            src="https://i1.wp.com/potafiori.com/wp-content/uploads/2020/04/placeholder.png?ssl=1"
+                            alt="Placeholder Image">
+                    @endif
                 </div>
+
                 <div class="col-5 d-flex flex-column justify-content-between">
                     <p class="pb-0">{{ $project->description }}</p>
                     <p class="pb-0"><strong>URL:</strong> <a id="project-url"

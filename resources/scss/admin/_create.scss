@@ -1,0 +1,8 @@
+@use '../vars' as *;
+
+#image-preview {
+    min-width: 386px;
+    height: 193px;
+    display: block;
+    object-fit: fill;
+}

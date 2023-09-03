@@ -2,13 +2,30 @@
 
 #projects-index {
     border-radius: 10px;
+    border: 3px solid #A5A5A5CC;
 
-    h1 {
-        font-weight: 600;
-        color: $color-primary;
-        padding: 10px;
-        border-bottom: 1px solid #CCCC;
+    .table-actions{
+        border-bottom: 1px solid $color-primary;
+
+        h1 {
+            font-weight: 600;
+            color: $color-primary;
+            padding: 10px;
+        }
+
+        #add-project-btn {
+            text-align: center;
+            padding: 5px 10px;
+            color: $color-primary;
+            border: 1px solid $color-primary;
+            border-radius: 7px;
+            &:hover {
+                color: $white;
+                background-color: $color-primary;
+            }
+        }
     }
+
 
     #projects-table {
         border-color: $color-primary;
@@ -67,6 +84,7 @@
     #destroy-btn {
         display: inline-block;
         background-color: transparent;
+        padding: 4px 10px;
         color: $color-primary;
         border: 1px solid $color-primary;
         &:hover {

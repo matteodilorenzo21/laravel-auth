@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Models\Project;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Str;
 
 class ProjectController extends Controller
 {
@@ -23,7 +24,7 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.projects.create');
     }
 
     /**
@@ -31,8 +32,36 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'title' => 'required|string|max:255',
+            'description' => 'required|string',
+            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:5120',
+            'url' => 'nullable|url',
+            'slug' => 'string|unique:projects,slug',
+            'completion_year' => 'nullable|integer',
+            'technologies' => 'nullable|string',
+            'client' => 'nullable|string',
+            'project_duration' => 'nullable|string',
+        ]);
+
+        $project = new Project();
+
+        $project->fill($validatedData);
+
+        if ($request->hasFile('image')) {
+            $imagePath = $request->file('image')->store('public/images');
+            $project->image = str_replace('public/', '', $imagePath);
+        }
+
+        if (!$project->slug) {
+            $project->slug = Str::slug($project->title, '-');
+        }
+
+        $project->save();
+
+        return redirect()->route('admin.projects.show', $project->id);
     }
+
 
     /**
      * Display the specified resource.

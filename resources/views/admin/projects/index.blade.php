@@ -6,7 +6,10 @@
 
     <section id="projects-index" class="bg-dark">
 
-        <h1>Projects</h1>
+        <div class="table-actions d-flex justify-content-start align-items-center">
+            <h1>Projects</h1>
+            <a id="add-project-btn" class="ms-1" href="{{ route('admin.projects.create') }}"><i class="bi bi-plus-lg"></i></a>
+        </div>
 
         <table id="projects-table" class="table table-dark table-striped">
             <thead>

@@ -50,13 +50,13 @@
                     </tr>
                 @empty
                     <tr>
-                        <td class="text-center">
-                            <h2>No projects to see here..</h2>
+                        <td class="text-center" style="width: 15%;">
+                            <h2>Nothing to see here..</h2>
                         </td>
                     </tr>
-                @endforelse
-            </tbody>
-        </table>
-    </section>
+                @endempty
+        </tbody>
+    </table>
+</section>
 
 @endsection

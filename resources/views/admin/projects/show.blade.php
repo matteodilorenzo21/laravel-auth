@@ -6,16 +6,17 @@
 
     <section id="project-show" class="shadow-lg">
         <div class="container-fluid">
-            <h1 class="ps-3 fw-bold pb-0">{{ $project->title }}</h1>
+            <div class="d-flex align-items-center justify-content-between">
+                <h1 class="ps-3 fw-bold">{{ $project->title }}</h1>
+                <a id="index-btn" class="me-3" href="{{ route('admin.projects.index') }}">Index</i></a>
+            </div>
             <div class="line-primary my-4"></div>
             <div class="row pb-1">
                 <div class="col-7 align-middle">
                     @if (!empty($project->image))
-                        <img id="show-img" src="{{ asset('storage/' . $project->image) }}" alt="Project Image">
+                        <img id="show-img" src="{{ asset('storage/images/' . $project->image) }}" alt="Project Image">
                     @else
-                        <img id="show-img"
-                            src="https://i1.wp.com/potafiori.com/wp-content/uploads/2020/04/placeholder.png?ssl=1"
-                            alt="Placeholder Image">
+                        <img id="show-img" src="{{ asset('images/placeholder.png') }}" alt="Placeholder Image">
                     @endif
                 </div>
 
@@ -26,9 +27,9 @@
                 </div>
             </div>
 
-            <div class="row pt-5">
+            <div class="row mt-5">
                 <div class="col-7 d-flex">
-                    <div class="me-5 ps-3">
+                    <div class="me-5 ps-2">
                         <p><strong>Completion Year:</strong> {{ $project->completion_year }}</p>
                         <p><strong>Technologies:</strong> {{ $project->technologies }}</p>
                     </div>

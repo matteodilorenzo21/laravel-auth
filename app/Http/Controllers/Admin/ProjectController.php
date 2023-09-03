@@ -49,8 +49,10 @@ class ProjectController extends Controller
         $project->fill($validatedData);
 
         if ($request->hasFile('image')) {
-            $imagePath = $request->file('image')->store('public/images');
-            $project->image = str_replace('public/', '', $imagePath);
+            $originalFileName = $request->file('image')->getClientOriginalName();
+
+            $imagePath = $request->file('image')->storeAs('public/images', $originalFileName);
+            $project->image = $originalFileName;
         }
 
         if (!$project->slug) {
@@ -61,7 +63,6 @@ class ProjectController extends Controller
 
         return redirect()->route('admin.projects.show', $project->id);
     }
-
 
     /**
      * Display the specified resource.
@@ -76,7 +77,7 @@ class ProjectController extends Controller
      */
     public function edit(Project $project)
     {
-        //
+        return view('admin.projects.edit', compact('project'));
     }
 
     /**
@@ -84,14 +85,41 @@ class ProjectController extends Controller
      */
     public function update(Request $request, Project $project)
     {
-        //
+        $validatedData = $request->validate([
+            'title' => 'required|string|max:255',
+            'description' => 'required|string',
+            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:5120',
+            'url' => 'nullable|url',
+            'slug' => 'string|unique:projects,slug,' . $project->id, // Escludi il record attuale dall'unicità dello slug
+            'completion_year' => 'nullable|integer',
+            'technologies' => 'nullable|string',
+            'client' => 'nullable|string',
+            'project_duration' => 'nullable|string',
+        ]);
+
+        $data = $request->all();
+
+        // Verifica se è stato caricato un nuovo file immagine
+        if ($request->hasFile('image')) {
+            $originalFileName = $request->file('image')->getClientOriginalName();
+
+            $imagePath = $request->file('image')->storeAs('public/images', $originalFileName);
+            $data['image'] = $originalFileName;
+        }
+
+        $project->update($data);
+
+        return redirect()->route('admin.projects.show', $project->id);
     }
+
 
     /**
      * Remove the specified resource from storage.
      */
     public function destroy(Project $project)
     {
-        //
+        $project->delete();
+
+        return redirect()->route('admin.projects.index');
     }
 }

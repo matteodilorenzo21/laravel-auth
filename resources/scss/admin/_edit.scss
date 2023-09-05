@@ -1,18 +1,18 @@
 @use '../vars' as *;
 
-#project-create {
+#project-edit {
     h2 {
         color: $color-primary;
     }
 
-    #image-preview {
-        min-width: 360px;
-        height: 180px;
+    #edit-image-preview {
+        min-width: 400px;
+        height: 200px;
         display: block;
         object-fit: fill;
     }
 
-    #create-back-btn {
+    #edit-back-btn {
         color: $white;
         padding: 5px 25px;
         background-color: $color-primary;
@@ -25,7 +25,7 @@
         }
     }
 
-    #create-reset-btn {
+    #edit-reset-btn {
         color: $white;
         padding: 5px 25px;
         background-color: $color-tertiary;
@@ -37,7 +37,7 @@
         }
     }
 
-    #create-create-btn {
+    #edit-update-btn {
         color: $white;
         padding: 5px 20px;
         background-color: $color-secondary;

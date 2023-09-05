@@ -16,12 +16,14 @@
         #add-project-btn {
             text-align: center;
             padding: 5px 10px;
-            color: $color-primary;
+            color: $white;
+            background-color: $color-primary;
             border: 1px solid $color-primary;
             border-radius: 7px;
+            transition: color 0.2s ease, background-color 0.2s ease;
             &:hover {
-                color: $white;
-                background-color: $color-primary;
+                color: $color-primary;
+                background-color: transparent;
             }
         }
     }
@@ -32,14 +34,22 @@
 
         th:first-child {
             width: 7.5%;
+            background-color: transparent !important;
         }
 
         th:not(:first-child) {
             width: calc(100% / 8);
+            background-color: transparent !important;
         }
 
         tbody tr {
             margin-bottom: 0;
+            background-color: transparent !important;
+        }
+
+        td {
+            background-color: transparent !important;
+            color: $white;
         }
     }
 

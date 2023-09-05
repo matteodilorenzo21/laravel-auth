@@ -6,10 +6,10 @@
 
     @include('components.forms.error-alert')
 
-    <section id="project-create" class="p-0">
+    <section id="project-edit" class="p-0 text-white">
         <div class="container">
             <div class="d-flex justify-content-between">
-                <h2>Edit | {{ $project->title }}</h2>
+                <h2>Edit | <span>{{ $project->title }}</span></h2>
             </div>
             <form action="{{ route('admin.projects.update', $project) }}" method="POST" enctype="multipart/form-data">
                 @csrf
@@ -36,9 +36,9 @@
                         <div>
                             <img class="border border-secondary"
                                 src="{{ asset('public/images/' . (old('image', $project->image) ?? 'https://i1.wp.com/potafiori.com/wp-content/uploads/2020/04/placeholder.png?ssl=1')) }}"
-                                alt="preview" id="image-preview">
-                            <input type="text" class="form-control mt-2" id="image-file-name" readonly
-                                value="{{ basename($project->image) }}">
+                                alt="preview" id="edit-image-preview">
+                            <input type="text" class="form-control mt-2 bg-transparent text-white" id="image-file-name"
+                                readonly value="{{ basename($project->image) }}">
                         </div>
                     </div>
                     <div class="col-6">
@@ -75,10 +75,11 @@
                     </div>
                 </div>
                 <div class="d-flex justify-content-end">
-                    <a href="{{ route('admin.projects.index') }}" class="btn btn-danger">Back<i
+                    <a href="{{ route('admin.projects.index') }}" id="edit-back-btn">Index<i
                             class="bi bi-arrow-counterclockwise"></i></a>
-                    <button type="reset" class="btn btn-secondary mx-2">Reset<i class="bi bi-arrow-repeat"></i></button>
-                    <button type="submit" class="btn btn-success">Update<i class="bi bi-check-lg"></i></button>
+                    <button id="edit-reset-btn" type="reset" class="mx-2">Reset<i
+                            class="bi bi-arrow-repeat"></i></button>
+                    <button id="edit-update-btn" type="submit">Update<i class="bi bi-check-lg"></i></button>
                 </div>
             </form>
         </div>
@@ -87,7 +88,7 @@
     <script>
         const placeholder = "https://i1.wp.com/potafiori.com/wp-content/uploads/2020/04/placeholder.png?ssl=1";
         const imageInput = document.getElementById("image");
-        const previewImage = document.getElementById("image-preview");
+        const previewImage = document.getElementById("edit-image-preview"); // Updated ID
 
         // Dynamic preview image update
         function updatePreviewImage() {

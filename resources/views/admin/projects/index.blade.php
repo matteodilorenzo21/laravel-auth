@@ -4,14 +4,19 @@
 
 @section('content')
 
-    <section id="projects-index" class="bg-dark">
 
-        <div class="table-actions d-flex justify-content-start align-items-center">
-            <h1>Projects</h1>
-            <a id="add-project-btn" class="ms-1" href="{{ route('admin.projects.create') }}"><i class="bi bi-plus-lg"></i></a>
+    <section id="projects-index" class="p-0 m-0">
+
+        <div class="table-actions d-flex justify-content-between align-items-center">
+            <h1 class="ms-1">Projects</h1>
+            <div class="d-flex align-items-center me-3">
+                <span class="fs-4 text-white pb-1">New</span>
+                <a id="add-project-btn" class="ms-2 justify-content-end" href="{{ route('admin.projects.create') }}"><i
+                        class="bi bi-plus-lg"></i></a>
+            </div>
         </div>
 
-        <table id="projects-table" class="table table-dark table-striped">
+        <table id="projects-table" class="table">
             <thead>
                 <tr>
                     <th scope="col">ID</th>

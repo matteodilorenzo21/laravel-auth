@@ -35,7 +35,7 @@ class ProjectController extends Controller
         $validatedData = $request->validate([
             'title' => 'required|string|max:255',
             'description' => 'required|string',
-            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:5120',
+            'image' => 'image|mimes:jpeg,png,jpg,gif,svg,mp4|max:5120',
             'url' => 'nullable|url',
             'slug' => 'string|unique:projects,slug',
             'completion_year' => 'nullable|integer',
@@ -88,7 +88,7 @@ class ProjectController extends Controller
         $validatedData = $request->validate([
             'title' => 'required|string|max:255',
             'description' => 'required|string',
-            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:5120',
+            'image' => 'image|mimes:jpeg,png,jpg,gif,svg,mp4|max:5120',
             'url' => 'nullable|url',
             'slug' => 'string|unique:projects,slug,' . $project->id, // Escludi il record attuale dall'unicità dello slug
             'completion_year' => 'nullable|integer',

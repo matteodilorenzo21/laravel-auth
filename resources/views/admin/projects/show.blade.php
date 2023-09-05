@@ -4,7 +4,7 @@
 
 @section('content')
 
-    <section id="project-show" class="shadow-lg">
+    <section id="project-show">
         <div class="container-fluid">
             <div class="d-flex align-items-center justify-content-between">
                 <h1 class="ps-3 fw-bold">{{ $project->title }}</h1>
@@ -28,7 +28,7 @@
             </div>
 
             <div class="row mt-5">
-                <div class="col-7 d-flex">
+                <div class="col-12 d-flex">
                     <div class="me-5 ps-2">
                         <p><strong>Completion Year:</strong> {{ $project->completion_year }}</p>
                         <p><strong>Technologies:</strong> {{ $project->technologies }}</p>

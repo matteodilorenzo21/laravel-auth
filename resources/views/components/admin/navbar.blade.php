@@ -1,6 +1,6 @@
 <header>
-    <nav class="navbar navbar-expand-md navbar-light p-0">
-        <div class="container">
+    <nav class="navbar navbar-expand-sm p-0">
+        <div class="container-fluid mx-5 px-4">
             <a class="navbar-brand d-flex align-items-center" href="{{ url('/') }}">
                 <div class="logo_laravel">
                     <img class="img-fluid" src="{{ asset('images/logo.png') }}" alt="logo" height="60" width="180">
@@ -42,12 +42,12 @@
                         @endif
                     @else
                         <li class="nav-item dropdown ">
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle text-white" href="#" role="button"
                                 data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 {{ Auth::user()->name }}
                             </a>
 
-                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                            <div class="dropdown-menu dropdown-menu-left bg-dark" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item ps-2" href="{{ url('admin') }}">Dashboard</a>
                                 <a class="dropdown-item ps-2" href="{{ url('profile') }}">{{ __('Profile') }}</a>
                                 <a class="dropdown-item ps-2" href="{{ route('logout') }}"

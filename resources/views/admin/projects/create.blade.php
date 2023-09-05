@@ -6,7 +6,7 @@
 
     @include('components.forms.error-alert')
 
-    <section id="project-create" class="p-0">
+    <section id="project-create" class="p-0 text-white">
         <div class="container">
             <div class="d-flex justify-content-between">
                 <h2>New Project</h2>
@@ -23,7 +23,7 @@
                         <div class="mb-3">
                             <label for="description"
                                 class="form-label @error('description') is-invalid @enderror">Descrizione</label>
-                            <textarea rows="2" class="form-control border border-secondary" id="description" name="description">{{ old('description') }}</textarea>
+                            <textarea rows="5" class="form-control border border-secondary" id="description" name="description">{{ old('description') }}</textarea>
                         </div>
                         <div class="mb-3">
                             <label for="image" class="form-label">Immagine</label>
@@ -72,10 +72,11 @@
                     </div>
                 </div>
                 <div class="d-flex justify-content-end">
-                    <a href="{{ route('admin.projects.index') }}" class="btn btn-danger">Back<i
+                    <a href="{{ route('admin.projects.index') }}" id="create-back-btn">Index<i
                             class="bi bi-arrow-counterclockwise"></i></a>
-                    <button type="reset" class="btn btn-secondary mx-2">Reset<i class="bi bi-arrow-repeat"></i></button>
-                    <button type="submit" class="btn btn-success">Create<i class="bi bi-plus-lg"></i></button>
+                    <button type="reset" id="create-reset-btn" class="mx-2">Reset<i
+                            class="bi bi-arrow-repeat"></i></button>
+                    <button type="submit" id="create-create-btn">Create<i class="bi bi-plus-lg"></i></button>
                 </div>
             </form>
         </div>

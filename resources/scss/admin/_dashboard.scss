@@ -2,16 +2,10 @@
 
 #admin-dashboard {
     
-    .col-6 {
-       .card:nth-child(-n+2) {
-        height: 220px;
+    .col-4 {
+       .card {
+        height: 300px;
     } 
-    }
-
-    .col-12 {
-        .card {
-            height: 200px;
-        }
     }
     
     .card {
@@ -22,6 +16,12 @@
     #card-index {
         border: 2px solid $color-primary;
         background-color: rgba($color-primary, 0.8);
+        transition: box-shadow 0.2s ease, transform 0.2s ease, background-color 0.2s ease;
+        &:hover {
+            background-color: rgba($color-primary, 0.6);
+            box-shadow: 0px 10px 12px rgba($color-primary, 0.3);
+            transform: translateY(-10px);
+        }
 
         .card-head {
             border-bottom: 2px solid $color-primary;
@@ -40,6 +40,12 @@
     #card-create {
         border: 2px solid $color-secondary;
         background-color: rgba($color-secondary, 0.8);
+        transition: box-shadow 0.2s ease, transform 0.2s ease, background-color 0.2s ease;
+        &:hover {
+            background-color: rgba($color-secondary, 0.6);
+            box-shadow: 0px 10px 12px rgba($color-secondary, 0.3);
+            transform: translateY(-10px);
+        }
     
         .card-head {
             border-bottom: 2px solid $color-secondary;
@@ -60,6 +66,12 @@
     #card-counter {
         border: 2px solid $color-tertiary;
         background-color: rgba($color-tertiary, 0.8);
+        transition: box-shadow 0.2s ease, transform 0.2s ease, background-color 0.2s ease;
+        &:hover {
+            background-color: rgba($color-tertiary, 0.6);
+            box-shadow: 0px 10px 12px rgba($color-tertiary, 0.3);
+            transform: translateY(-10px);
+        }
 
         .card-head {
             border-bottom: 2px solid $color-tertiary;
@@ -71,16 +83,5 @@
                 color: $white;
             }
         }
-    }
-
-
-    #card-index,
-    #card-create {
-        transition: box-shadow 0.2s ease, transform 0.2s ease;
-        &:hover {
-            box-shadow: 0px 3px 6px rgba($color-bone, 0.3);
-            transform: translateY(-10px);
-        }
-        
     }
 }
